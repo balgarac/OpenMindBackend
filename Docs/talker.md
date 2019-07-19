@@ -18,22 +18,16 @@ data - {
 	talkers = [
 		{
 			name - string
+			phoneNumber - string
 			age - number
-			area - string
 			sex - string
 			field - string
+			area - string
 			introduce - string
 			profile - string
-			phoneNumber - string
 			token - string
 			career - number
 			openCount - number
-			reviewList - [
-				reviewerId - string
-        date - string
-        star - number
-        message - string
-			]
 		}
 	]
 }
@@ -57,22 +51,16 @@ status - 200
 data = {
 	talker = {
 		name - string
+		phoneNumber - string
 		age - number
-		area - string
 		sex - string
 		field - string
+		area - string
 		introduce - string
 		profile - string
-		phoneNumber - string
 		token - string
 		career - number
 		openCount - number
-		reviewList - [
-      reviewerId - string
-      date - string
-      star - number
-      message - string
-		]
 	}
 }
 ```
@@ -103,22 +91,16 @@ data = {
 	talkers = [
 		{
 			name - string
+			phoneNumber - string
 			age - number
-			area - string
 			sex - string
 			field - string
+			area - string
 			introduce - string
 			profile - string
-			phoneNumber - string
 			token - string
 			career - number
 			openCount - number
-			reviewList - [
-				reviewerId - string
-        date - string
-        star - number
-        message - string
-			]
 		}
 	]
 }
@@ -149,22 +131,16 @@ status - 200
 data = {
 	talker = {
 		name - string
+		phoneNumber - string
 		age - number
-		area - string
 		sex - string
 		field - string
+		area - string
 		introduce - string
 		profile - string
-		phoneNumber - string
 		token - string
 		career - number
 		openCount - number
-		reviewList - [
-      reviewerId - string
-      date - string
-      star - number
-      message - string
-		]
 	}
 }
 ```
