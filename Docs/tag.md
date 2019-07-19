@@ -27,28 +27,3 @@ data = {
 status - 400
 message - Bad request
 ```
-
-
-
-### 태그 업데이트
-
-### POST: /tagUpdate
-
-> Require
-
-```
-token - string, tagList - string[];
-```
-
-> Response: Success
-
-```
-status - 200
-
-```
-
-> Response: Fail
-
-```
-status - 400
-```

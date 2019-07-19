@@ -14,6 +14,14 @@ none
 
 ```
 status - 200
+data = {
+  name - string
+  phoneNumber - string
+  age - string
+  sex - string
+  location - string
+  token - string
+}
 ```
 
 > Response: Fail
