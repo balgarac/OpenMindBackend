@@ -1,30 +1,30 @@
-## Schema
+# Schema
 
 ## 상담원
 
 ------
 
-> 이름: string
+> name - string
 >
-> 나이: string
+> age - string
 >
-> 지역: string
+> location - string
 >
-> 성별: string
+> sex - string
 >
-> 상담 분야: string
+> field - string
 >
-> 한줄 소개: string
+> introduce - string
 >
-> 프로필 사진: string(url)
+> profile - string(url)
 >
-> 전화번호: string
+> phoneNumber - string
 >
-> 경력: number
+> career - number
 >
-> open 횟수: number
+> openCount - number
 >
-> 후기리스트: array<후기>
+> reviewList - array<후기>
 
 
 
@@ -32,13 +32,13 @@
 
 ------
 
-> 사용자 아이디: string
+> reviewerId - string
 >
-> 날짜: string
+> date - string
 >
-> 별점: number
+> star - number
 >
-> 메시지: string
+> message - string
 
 
 
@@ -46,15 +46,15 @@
 
 ------
 
-> 이름: string
+> name - string
 >
-> 나이: string
+> age - string
 >
-> 지역: string
+> location - string
 >
-> 성별: string
+> sex - string
 >
-> 전화번호: string
+> phoneNumber - string
 >
-> 고민거리: null
+> worry - null
 
