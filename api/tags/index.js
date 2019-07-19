@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/tagList', (req, res) => {
+const controller = require('./tags.controller');
 
-});
+router.get('/tagList', controller.tagList);
 
 router.post('/tagUpdate', (req, res) => {
 
