@@ -20,9 +20,6 @@ exports.listenerBytoken = (req, res) => {
 
   connection.query(SELECT_LISTENER_BY_TOKEN, (error, rows) => {
     if(error) console.log(error);
-    for(var i in rows){
-      listener.push(rows[i]);
-    }
-    return res.status(200).json(listener);
+    return res.status(200).json(rows);
   })
 };
