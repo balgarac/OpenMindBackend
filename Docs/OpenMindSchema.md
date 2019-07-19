@@ -8,7 +8,7 @@
 >
 > age - string
 >
-> location - string
+> area - string
 >
 > sex - string
 >
