@@ -34,7 +34,7 @@ exports.talkerBycategory = (req, res) => {
 exports.talkerBytoken = (req, res) => {
   var talker = [];
   const token = req.params.token;
-  const SELECT_TALKER_BY_TOKEN = `SELECT * FROM talker WHERE token = ${token}`;
+  const SELECT_TALKER_BY_TOKEN = `SELECT * FROM talker WHERE token = '${token}'`;
 
   connection.query(SELECT_TALKER_BY_TOKEN, (error, row) => {
     if(error) console.log(error);
