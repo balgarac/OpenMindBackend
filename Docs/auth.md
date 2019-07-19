@@ -6,69 +6,63 @@
 
 ### POST : /Listen/signin
 
-> require
+> Require
 
 ```
-data = {
-	id - string
-	pw - string
-}
+id - string
+pw - string
 ```
 
-> response : success
+> Response: Success
 
 ``` 
+status - 200
 data = {
   status - 200
   message - "Login success!"
-  token - "string"
+  token - string
 }
 ```
 
-> response:fail
+> Response: Fail
 
 ```
-data = {
-  status - 401
-  message - "Login failed"
-}
+status - 401
+message - "Login failed"
 ```
 
 ### 상담 요청자의 회원가입
 
 #### POST: /Listen/signup
 
-> require
+> Require
 
 ```
-data = {
-	name - string
-	phone - string
-	id - string
-	pw - string
-	age - number
-	sex - string
-	location - string
-}
+name - string
+phone - string
+id - string
+pw - string
+age - number
+sex - string
+location - string
 ```
 
->  response : success
+>  Response: Success
 
 ```
+status - 200
 data = {
 	status - 200
 	message - "Signup success!"
-	token - "string"
+	token - string
 }
 ```
 
-> response : fail
+> Response: Fail
 
 ```da
-data = {
-	status - 400
-	message - "Signup fail!"
-}
+status - 400
+message - "Signup fail!"
 ```
 
 
@@ -79,18 +73,17 @@ data = {
 
 #### POST: /talker/signin
 
-> require
+> Require
 
 ```
-data = {
-	id - string
-	pw - string
-}
+id - string
+pw - string
 ```
 
-> response : success
+> Response: Success
 
 ```
+status - 200
 data = {
   status - 200
   message - "Login success!"
@@ -98,37 +91,34 @@ data = {
 }
 ```
 
-> response : fail
+> Response: Fail
 
 ```
-data = {
-	status - 401
-	message - "Login failed"
-}
+status - 401
+message - "Login failed"
 ```
 
 ### 상담자의 회원가입
 
 #### POST: /talker/signup
 
-> require
+> Require
 
 ```
-data = {
-  name - string
-  phone - string
-  id - string
-  pw - string
-  age - number
-  sex - string
-  field - string
-  area - string
-}
+name - string
+phone - string
+id - string
+pw - string
+age - number
+sex - string
+field - string
+area - string
 ```
 
-> response : success
+> Response: Success
 
 ```
+status - 200
 data = {
 	status - 200
 	message - "Signup success!"
@@ -136,12 +126,10 @@ data = {
 }
 ```
 
-> response : fail
+> Response: Fail
 
 ```
-data = {
-  status - 401
-  message - "Login failed"
-}
+status - 401
+message - "Login failed"
 ```
 
