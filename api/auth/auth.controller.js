@@ -13,7 +13,6 @@ function makeid()
 exports.listenerSignin = (req, res) => {
     const id = req.body.id;
     const pw = req.body.pw;
-    console.log(id, pw);
   
     const SELECT_LISTENER = `SELECT * FROM listener WHERE id = '${id}'`;
     connection.query(SELECT_LISTENER, (error, rows) => {
@@ -23,9 +22,10 @@ exports.listenerSignin = (req, res) => {
       console.log(rows);
       for(var i in rows){
           if(rows[i].pw == pw){
+              console.log(`${id} 로그인함`);
               res.status(200).json({token: rows[i].token});
           }
-          else res.status(401).send('signin fail!');
+          else res.status(401).json({message: 'signin fail!'});
       }
     });
 };
@@ -51,6 +51,7 @@ exports.listenerSignup = (req, res) => {
             }
         }
         connection.query(INSERT_LISTENER, (error, rows) => {
+            console.log(`${id} 회원가입`);
             return res.status(200).json({message: 'Signup success!'});
         })
     })
@@ -59,7 +60,6 @@ exports.listenerSignup = (req, res) => {
 exports.talkerSignin = (req, res) => {
   const id = req.body.id;
   const pw = req.body.pw;
-  console.log(id, pw);
 
   const SELECT_TALKER = `SELECT * FROM talker WHERE id = '${id}'`;
   connection.query(SELECT_TALKER, (error, rows) => {
@@ -69,9 +69,10 @@ exports.talkerSignin = (req, res) => {
     console.log(rows);
     for(var i in rows){
         if(rows[i].pw == pw){
+            console.log(`${id} 로그인함`);
             res.status(200).json({token: rows[i].token});
         }
-        else res.status(401).send('signin fail!');
+        else res.status(401).json({message: 'signin fail!'});
     }
   })
 };
@@ -102,6 +103,7 @@ exports.talkerSignup = (req, res) => {
             }
         }
         connection.query(INSERT_TALKER, (error, rows) => {
+            console.log(`${id} 회원가입`);
             return res.status(200).json({message: 'Signup success!'});
         });
     })
