@@ -3,9 +3,9 @@ const router = express.Router();
 
 const controller = require('./auth.controller');
 
-router.get('/listener/signin', );
-router.get('/listener/signup', );
-router.get('/talker/signin', );
-router.get('/talker/signup', );
+router.post('/listener/signin', );
+router.post('/listener/signup', controller.listenerSignup);
+router.post('/talker/signin', );
+router.post('/talker/signup', controller.talkerSignup);
 
 module.exports = router;
