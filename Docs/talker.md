@@ -155,7 +155,40 @@ talkerToken 정보를 주지 않았을 때 발생.
 
 ### 전체 상담원 랭킹
 
+### GET: /talkerBytoken
+
+> Require
+
+```
+none
+```
+
+> Response: Success
+
+```
+status - 200
+data = {
+	[
+		{
+			name - string
+			phoneNumber - string
+			age - number
+			sex - string
+			field - string
+			area - string
+			introduce - string
+			profile - string
+			token - string
+			career - number
+			openCount - number
+		}
+	]
+}
+```
+
+
 ### 태그별 상담원 랭킹
+
 
 ### 마이페이지 -> 지역 카테고리
 
