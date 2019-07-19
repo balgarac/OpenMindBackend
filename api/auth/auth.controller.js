@@ -24,7 +24,7 @@ exports.listenerSignin = (req, res) => {
       for(var i in rows){
           if(rows[i].pw == pw){
               console.log(`${id} 로그인함`);
-              res.status(200).json({token: rows[i].token});
+              res.status(200).json({token: rows[i].token, isListener: true });
           }
           else res.status(401).json({message: 'signin fail!'});
       }
@@ -73,7 +73,7 @@ exports.talkerSignin = (req, res) => {
     for(var i in rows){
         if(rows[i].pw == pw){
             console.log(`${id} 로그인함`);
-            res.status(200).json({token: rows[i].token});
+            res.status(200).json({token: rows[i].token, isListener: false});
         }
         else res.status(401).json({message: 'signin fail!'});
     }
