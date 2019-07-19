@@ -8,3 +8,5 @@ router.get('/tagList', controller.tagList);
 router.post('/tagUpdate', (req, res) => {
 
 });
+
+module.exports = router;

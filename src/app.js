@@ -7,6 +7,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use('/', require('../api/listener/index'));
+app.use('/', require('../api/tags/index'));
+app.use('/', require('../api/talker/index'));
+
 app.get('/', (req, res) => {
   res.send('World!');
 });
