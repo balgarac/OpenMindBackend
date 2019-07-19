@@ -5,10 +5,11 @@ exports.talker = (req, res) => {
   const SELECT_TALKER = 'SELECT * FROM talker';
   connection.query(SELECT_TALKER, (error, rows) => {
     if (error) console.log(error);
-    for (var i in rows) 
-      talker.push(JSON.parse(rows[i]));
+    for (var i in rows) {
+      talker.push(rows[i]);
+    }
+    return res.status(200).json(talker);
   });
-  return res.status(200).json(talker);
 };
 
 exports.talkerBytag = (req, res) => {
