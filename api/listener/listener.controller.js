@@ -10,3 +10,17 @@ exports.listener = (req, res) => {
     return res.status(200).json(listeners);
   });
 };
+
+exports.listenerBytoken = (req, res) => {
+  var listener = [];
+  const token = req.params.token;
+  const SELECT_LISTENER_BY_TOKEN = `SELECT * FROM listener WHERE token = ${token}`;
+
+  connection.query(SELECT_LISTENER_BY_TOKEN, (error, rows) => {
+    if(error) console.log(error);
+    for(var i in rows){
+      listener.push(rows[i]);
+    }
+    return res.status(200).json(listener);
+  })
+};
