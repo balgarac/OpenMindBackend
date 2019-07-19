@@ -10,6 +10,7 @@ app.use('/', require('../api/listener/index'));
 app.use('/', require('../api/tags/index'));
 app.use('/', require('../api/talker/index'));
 app.use('/', require('../api/auth/index'));
+app.use('/', require('../api/rank/index'));
 
 app.get('/', (req, res) => {
   res.send('World!');
