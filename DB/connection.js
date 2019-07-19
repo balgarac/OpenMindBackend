@@ -1,11 +1,13 @@
 const mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host : "127.0.0.1",
+    host : "localhost",
     port : 3306,
     user : "root",
-    password : "1111",
-    database : "openMind"
+    password : "asdf1145",
+    database : "openmind_DB"
 });
+
+connection.connect();
 
 module.exports = connection;
