@@ -6,6 +6,6 @@ const controller = require('./auth.controller');
 router.post('/listener/signin', );
 router.post('/listener/signup', controller.listenerSignup);
 router.post('/talker/signin', );
-router.post('/talker/signup', );
+router.post('/talker/signup', controller.talkerSignup);
 
 module.exports = router;
