@@ -14,7 +14,7 @@ exports.listener = (req, res) => {
 exports.listenerBytoken = (req, res) => {
   var listener = [];
   const token = req.params.token;
-  const SELECT_LISTENER_BY_TOKEN = `SELECT * FROM listener WHERE token = ${token}`;
+  const SELECT_LISTENER_BY_TOKEN = `SELECT * FROM listener WHERE token = '${token}'`;
 
   connection.query(SELECT_LISTENER_BY_TOKEN, (error, rows) => {
     if(error) console.log(error);
