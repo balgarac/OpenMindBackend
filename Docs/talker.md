@@ -25,6 +25,7 @@ data - {
 			introduce - string
 			profile - string
 			phoneNumber - string
+			token - string
 			career - number
 			openCount - number
 			reviewList - [
@@ -63,6 +64,7 @@ data = {
 		introduce - string
 		profile - string
 		phoneNumber - string
+		token - string
 		career - number
 		openCount - number
 		reviewList - [
@@ -106,6 +108,7 @@ data = {
 			introduce - string
 			profile - string
 			phoneNumber - string
+			token - string
 			career - number
 			openCount - number
 			reviewList - [
@@ -149,6 +152,7 @@ data = {
 		introduce - string
 		profile - string
 		phoneNumber - string
+		token - string
 		career - number
 		openCount - number
 		reviewList - [
