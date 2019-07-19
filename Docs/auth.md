@@ -50,9 +50,6 @@ phoneNumber - string	//휴대폰 번호
 
 ```
 status - 200
-body = {
-	token - string
-}
 message - "Signup success!"
 ```
 
@@ -120,9 +117,6 @@ openCount - number //오픈 횟수
 
 ```
 status - 200
-body = {
-	token - string
-}
 message - "Signup success!"
 ```
 
