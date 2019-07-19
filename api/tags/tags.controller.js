@@ -7,8 +7,8 @@ exports.tagList = (req, res) => {
         if(error) console.log(error);
         for(var i in rows)
             tags.push(rows[i].tag)
+        return res.status(200).json(tags);
     });
-    return res.status(200).json(tags);
 };
 
 exports.tagUpdate = (req, res) => {
