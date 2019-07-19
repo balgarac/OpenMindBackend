@@ -32,11 +32,15 @@ exports.talkerBycategory = (req, res) => {
 };
 
 exports.talkerBytoken = (req, res) => {
+  var talker = [];
   const token = req.params.token;
-  const SELECT_TALKER_BYTOKEN = `SELECT * FROM talker WHERE token = ${token}`;
+  const SELECT_TALKER_BY_TOKEN = `SELECT * FROM talker WHERE token = ${token}`;
 
   connection.query(SELECT_TALKER_BY_TOKEN, (error, rows) => {
     if(error) console.log(error);
-    
+    for(var i in rows){
+      talker.push(rows[i]);
+    }
+    return res.status(200).json(talker);
   })
 };
