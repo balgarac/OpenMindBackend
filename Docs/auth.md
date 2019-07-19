@@ -17,10 +17,10 @@ pw - string
 
 ``` 
 status - 200
-data = {
-  message - "Login success!"
+body = {
   token - string
 }
+message - "Login success!"
 ```
 
 > Response: Fail
@@ -50,11 +50,10 @@ location - string
 
 ```
 status - 200
-data = {
-	status - 200
-	message - "Signup success!"
+body = {
 	token - string
 }
+message - "Signup success!"
 ```
 
 > Response: Fail
@@ -83,11 +82,10 @@ pw - string
 
 ```
 status - 200
-data = {
-  status - 200
-  message - "Login success!"
+body = {
   token - string
 }
+message - "Login success!"
 ```
 
 > Response: Fail
@@ -119,10 +117,9 @@ area - string
 ```
 status - 200
 data = {
-	status - 200
-	message - "Signup success!"
 	token - string
 }
+message - "Signup success!"
 ```
 
 > Response: Fail
