@@ -49,12 +49,10 @@ exports.listenerSignup = (req, res) => {
             if(rows[i].id == id){
                 return res.status(400).send('Signup fail!');
             }
-            else{
-                connection.query(INSERT_LISTENER, (error, rows) => {
-                    return res.status(200).send('Signup success!');
-                })
-            }
         }
+        connection.query(INSERT_LISTENER, (error, rows) => {
+            return res.status(200).send('Signup success!');
+        })
     })
 };
 
@@ -79,7 +77,6 @@ exports.talkerSignin = (req, res) => {
 };
 
 exports.talkerSignup = (req, res) => {
-    console.log(1);
     const name = req.body.name;
     const phone = req.body.phoneNumber;
     const id = req.body.id;
@@ -99,7 +96,6 @@ exports.talkerSignup = (req, res) => {
     
     connection.query(CHECK_DUP, (error, rows) => {
         if(error) console.log(error);
-        console.log(rows);
         for(var i in rows){
             if(rows[i].id == id){
                 return res.status(400).send('Signup fail!');
