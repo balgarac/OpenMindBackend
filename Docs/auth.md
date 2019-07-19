@@ -4,13 +4,13 @@
 
 ### 상담 요청자의 로그인
 
-### POST : /Listen/signin
+### POST : /listener/signin
 
 > Require
 
 ```
-id - string
-pw - string
+id - string //아이디
+pw - string	//비밀번호
 ```
 
 > Response: Success
@@ -32,18 +32,18 @@ message - "Login failed"
 
 ### 상담 요청자의 회원가입
 
-#### POST: /Listen/signup
+#### POST: /listener/signup
 
 > Require
 
 ```
-name - string
-phone - string
-id - string
-pw - string
-age - number
-sex - string
-location - string
+name - string	//이름
+id - string	//아이디
+pw - string	//비밀번호
+age - string	//나이
+location - string	//상담 요청자의 거주지
+sex - string	//성별
+phoneNumber - string	//휴대폰 번호
 ```
 
 >  Response: Success
@@ -74,8 +74,8 @@ message - "Signup fail!"
 > Require
 
 ```
-id - string
-pw - string
+id - string	//아이디
+pw - string	//비밀번호
 ```
 
 > Response: Success
@@ -102,21 +102,24 @@ message - "Login failed"
 > Require
 
 ```
-name - string
-phone - string
-id - string
-pw - string
-age - number
-sex - string
-field - string
-area - string
+name - string	//이름
+id - string	//아이디
+pw - string	//비밀번호
+age - string	//나이
+area - string	//상담자의 영업 장소
+sex - string	//성별
+field - string	//상담 분야
+introduce - string	//한줄 소개
+profile - string(url)	//프로필 사진
+phoneNumber - string	//휴대폰 번호
+career - number	//경력
 ```
 
 > Response: Success
 
 ```
 status - 200
-data = {
+body = {
 	token - string
 }
 message - "Signup success!"
