@@ -32,7 +32,7 @@ exports.listenerSignin = (req, res) => {
 
 exports.listenerSignup = (req, res) => {
     const name = req.body.name;
-    const phone = req.body.phone;
+    const phone = req.body.phoneNumber;
     const id = req.body.id;
     const pw = req.body.pw;
     const age = req.body.age;
@@ -40,20 +40,21 @@ exports.listenerSignup = (req, res) => {
     const location = req.body.location;
     const token = makeid();
     const CHECK_DUP = `SELECT * FROM listener`;
-    const INSERT_LISTENER = `INSERT INTO listener (name, phoneNumber, id, pw, age, sex, loaction, token) VALUES ('${name}', '${phone}', '${id}', '${pw}', '${age}', '${sex}', '${location}', '${token}')`
+    const INSERT_LISTENER = `INSERT INTO listener (name, phoneNumber, id, pw, age, sex, location, token) VALUES ('${name}', '${phone}', '${id}', '${pw}', ${age}, '${sex}', '${location}', '${token}')`
 
-    connection.query(`SELECT * FROM listener`, (row) => {
-        console.log(row);
-        // for(var i in rows){
-        //     if(rows[i].id == id){
-        //         return res.status(400).send('Signup fail!');
-        //     }
-        //     else{
-        //         connection.query(INSERT_LISTENER, () => {
-        //             return res.status(200).send('Signup success!');
-        //         })
-        //     }
-        // }
+    connection.query(CHECK_DUP, (error, rows) => {
+        if(error) console.log(rows);
+        console.log(rows);
+        for(var i in rows){
+            if(rows[i].id == id){
+                return res.status(400).send('Signup fail!');
+            }
+            else{
+                connection.query(INSERT_LISTENER, (error, rows) => {
+                    return res.status(200).send('Signup success!');
+                })
+            }
+        }
     })
 };
 
@@ -87,23 +88,26 @@ exports.talkerSignup = (req, res) => {
     const sex = req.body.sex;
     const field = req.body.field;
     const area = req.body.area;
+    const introduce = req.body.introduce;
+    const profile = req.body.profile;
     const token = makeid();
-    console.log(name, phone, id, pw);
+    const career = req.body.career;
+    const openCount = req.body.openCount;
+    console.log(name, phone, id, pw, age, sex, field, area, introduce, profile, token, career, openCount)
     const CHECK_DUP = `SELECT * FROM talker`;
-    const INSERT_TALKER = `INSERT INTO talker (name, phoneNumber, id, pw, age, sex, field, area, token) VALUES ('${name}', '${phone}', '${id}', '${pw}', '${age}', '${sex}', '${field}', '${area}', '${token}')`
+    const INSERT_TALKER = `INSERT INTO talker (name, phoneNumber, id, pw, age, sex, field, area, introduce, profile, token, career, openCount) VALUES ('${name}', '${phone}', '${id}', '${pw}', ${age}, '${sex}', '${field}', '${area}', '${introduce}', '${profile}', '${token}', ${career}, ${openCount})`
     
-    connection.query(CHECK_DUP, (rows) => {
+    connection.query(CHECK_DUP, (error, rows) => {
+        if(error) console.log(error);
         console.log(rows);
         for(var i in rows){
             if(rows[i].id == id){
                 return res.status(400).send('Signup fail!');
             }
-            else{
-                connection.query(INSERT_TALKER, () => {
-                    return res.status(200).send('Signup success!');
-                });
-            }
         }
+        connection.query(INSERT_TALKER, (error, rows) => {
+            return res.status(200).send('Signup success!');
+        });
     })
 };
 
