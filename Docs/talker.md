@@ -35,11 +35,11 @@ data - {
 
 ### 태그에 의한 상담원 검색
 
-### GET: /talkerBytag
+### GET: /talkerBytag/:tag
 
 > Require
 
-```tag: st
+```
 tag - string
 내가 선택한 태그
 ```
@@ -116,7 +116,7 @@ category 정보를 주지 않았을 때 발생.
 
 ### 상담원 토큰에 의한 상담원 검색
 
-### GET: /talkerBytoken
+### GET: /talkerBytoken/:talkerToken
 
 > Require
 
