@@ -20,6 +20,8 @@
 >
 > phoneNumber - string
 >
+> token - string
+>
 > career - number
 >
 > openCount - number
@@ -55,6 +57,8 @@
 > sex - string
 >
 > phoneNumber - string
+>
+> token - string
 >
 > worry - null
 
