@@ -1,5 +1,6 @@
 const connection = require('../../DB/connection');
 
+// 상담원의 오픈 횟수 랭킹
 exports.ranking = (req, res) => {
     var talker = [];
     const SELECT_BY_DESC = 'SELECT * FROM talker ORDER BY openCount DESC';

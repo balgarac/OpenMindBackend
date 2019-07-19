@@ -1,5 +1,6 @@
 const connection = require('../../DB/connection');
 
+// 태그 리스트
 exports.tagList = (req, res) => {
     var tags = [];
     const SELECT_TAGS = 'SELECT * FROM tags'
@@ -10,7 +11,3 @@ exports.tagList = (req, res) => {
         return res.status(200).json(tags);
     });
 };
-
-exports.tagUpdate = (req, res) => {
-
-}

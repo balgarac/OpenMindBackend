@@ -8,6 +8,5 @@ router.post('/listener/signin', controller.listenerSignin);
 router.post('/listener/signup', controller.listenerSignup);
 router.post('/talker/signin', controller.talkerSignin);
 router.post('/talker/signup', controller.talkerSignup);
-// router.post('/phoneAuth', phoneAuthController.smsVerification);
 
 module.exports = router;

@@ -10,6 +10,7 @@ function makeid()
     return text;
 }
 
+// 상담 요청자 로그인
 exports.listenerSignin = (req, res) => {
     const id = req.body.id;
     const pw = req.body.pw;
@@ -30,6 +31,7 @@ exports.listenerSignin = (req, res) => {
     });
 };
 
+// 상담 요청자 회원가입
 exports.listenerSignup = (req, res) => {
     const name = req.body.name;
     const phone = req.body.phoneNumber;
@@ -57,6 +59,7 @@ exports.listenerSignup = (req, res) => {
     })
 };
 
+// 상담원 로그인
 exports.talkerSignin = (req, res) => {
   const id = req.body.id;
   const pw = req.body.pw;
@@ -77,6 +80,7 @@ exports.talkerSignin = (req, res) => {
   })
 };
 
+// 상담원 회원가입
 exports.talkerSignup = (req, res) => {
     const name = req.body.name;
     const phone = req.body.phoneNumber;

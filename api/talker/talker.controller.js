@@ -1,5 +1,6 @@
 const connection = require('../../DB/connection');
 
+// 모든 상담원 리스트
 exports.talker = (req, res) => {
   var talker = [];
   const SELECT_TALKER = 'SELECT * FROM talker';
@@ -12,25 +13,7 @@ exports.talker = (req, res) => {
   });
 };
 
-exports.talkerBytag = (req, res) => {
-  var talker = [];
-  const tag = req.params.tag
-  const SELECT_TALKER = `SELECT * FROM talker WHERE field=${tag}`;
-
-  connection.query(SELECT_TALKER, (error, rows) => {
-    if (error) console.log(error);
-    for (var i in rows)
-      talker.push(rows[i]);
-    return res.status(200).json(talker);
-  });
-};
-
-exports.talkerBycategory = (req, res) => {
-  const cate = req.params.cate;
-  
-
-};
-
+// 토큰에 맞는 상담원 정보
 exports.talkerBytoken = (req, res) => {
   var talker = [];
   const token = req.params.token;
@@ -43,6 +26,7 @@ exports.talkerBytoken = (req, res) => {
   })
 };
 
+// 상담원의 open 횟수 증가
 exports.incOpenCount = (req, res) => {
   var token = req.params.token;
   const SELECT_TALKER_OPENCOUNT = `SELECT * FROM talker WHERE token = '${token}'`
