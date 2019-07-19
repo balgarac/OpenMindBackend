@@ -41,7 +41,7 @@ data - {
 
 ### 태그에 의한 상담원 검색
 
-### GET: /talker
+### GET: /talkerBytag
 
 > Require
 
@@ -85,7 +85,9 @@ message - Bad request
 tag 정보를 주지 않았을 때 발생.
 ```
 
-###내 카테고리에 맞는 상담원
+### 내 카테고리에 맞는 상담원
+
+### GET: /talkerBycategory
 
 > Require
 
@@ -131,6 +133,8 @@ category 정보를 주지 않았을 때 발생.
 ```
 
 ### 상담원 토큰에 의한 상담원 검색
+
+### GET: /talkerBytoken
 
 > Require
 
