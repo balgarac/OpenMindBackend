@@ -18,7 +18,6 @@ pw - string
 ``` 
 status - 200
 data = {
-  status - 200
   message - "Login success!"
   token - string
 }
