@@ -15,7 +15,9 @@
     "start": "nodemon src/app.js"
   },
   "devDependencies": {
+    "cache": "^2.1.0",
     "nodemon": "^1.19.1",
+    "request": "^2.88.0",
     "typescript": "^3.5.3"
   }
 }
