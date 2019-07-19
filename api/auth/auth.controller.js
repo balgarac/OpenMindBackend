@@ -47,11 +47,11 @@ exports.listenerSignup = (req, res) => {
         console.log(rows);
         for(var i in rows){
             if(rows[i].id == id){
-                return res.status(400).send('Signup fail!');
+                return res.status(400).json({messgae: 'Signup fail!'});
             }
         }
         connection.query(INSERT_LISTENER, (error, rows) => {
-            return res.status(200).send('Signup success!');
+            return res.status(200).json({message: 'Signup success!'});
         })
     })
 };
@@ -98,11 +98,11 @@ exports.talkerSignup = (req, res) => {
         if(error) console.log(error);
         for(var i in rows){
             if(rows[i].id == id){
-                return res.status(400).send('Signup fail!');
+                return res.status(400).json({message: 'Signup fail!'});
             }
         }
         connection.query(INSERT_TALKER, (error, rows) => {
-            return res.status(200).send('Signup success!');
+            return res.status(200).json({message: 'Signup success!'});
         });
     })
 };
