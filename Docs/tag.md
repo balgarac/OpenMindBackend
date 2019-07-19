@@ -37,13 +37,18 @@ message - Bad request
 > Require
 
 ```
-
+token - string, tagList - string[];
 ```
-
-
 
 > Response: Success
 
+```
+status - 200
 
+```
 
 > Response: Fail
+
+```
+status - 400
+```
