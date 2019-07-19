@@ -7,6 +7,6 @@ exports.listener = (req, res) => {
     if (error) console.log(error);
     for (var i in rows) 
       listeners.push(rows[i]);
+    return res.status(200).json(listeners);
   });
-  return res.status(200).json(listeners);
 };
