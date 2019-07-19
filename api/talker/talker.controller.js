@@ -26,9 +26,17 @@ exports.talkerBytag = (req, res) => {
 };
 
 exports.talkerBycategory = (req, res) => {
+  const cate = req.params.cate;
   
+
 };
 
 exports.talkerBytoken = (req, res) => {
-  
+  const token = req.params.token;
+  const SELECT_TALKER_BYTOKEN = `SELECT * FROM talker WHERE token = ${token}`;
+
+  connection.query(SELECT_TALKER_BY_TOKEN, (error, rows) => {
+    if(error) console.log(error);
+    
+  })
 };
