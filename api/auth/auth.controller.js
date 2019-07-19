@@ -11,28 +11,23 @@ function makeid()
 }
 
 exports.listenerSignin = (req, res) => {
-  const id = req.params.id;
-  const pw = req.params.pw;
-
-  var listeners = [];
-  const SELECT_LISTENER = 'SELECT * FROM listener';
-  connection.query(SELECT_LISTENER, (error, rows) => {
-    if (error) console.log(error);
-    for (var i in rows) 
-      listeners.push(rows[i]);
-  });
-
-  const listenUser = listeners.filter(listener => {
-    (listener.id === id) && (listener.pw === pw)
-  })[0];
-  const UserToken = {
-    token: listenUser.token
-  };
-
-  if (!listenUser) {
-    return res.status(401).send("Login failed");
-  }
-  return res.status(200).json(UserToken).send("Signup success!");
+    const id = req.body.id;
+    const pw = req.body.pw;
+    console.log(id, pw);
+  
+    const SELECT_LISTENER = `SELECT * FROM listener WHERE id = '${id}'`;
+    connection.query(SELECT_LISTENER, (error, rows) => {
+      if(error){
+          console.log(error); //에러가 있다면 에러를 console에 출력.
+      }
+      console.log(rows);
+      for(var i in rows){
+          if(rows[i].pw == pw){
+              res.status(200).json({token: rows[i].token});
+          }
+          else res.status(401).send('signin fail!');
+      }
+    });
 };
 
 exports.listenerSignup = (req, res) => {
@@ -47,17 +42,18 @@ exports.listenerSignup = (req, res) => {
     const CHECK_DUP = `SELECT * FROM listener`;
     const INSERT_LISTENER = `INSERT INTO listener (name, phoneNumber, id, pw, age, sex, loaction, token) VALUES ('${name}', '${phone}', '${id}', '${pw}', '${age}', '${sex}', '${location}', '${token}')`
 
-    connection.query(CHECK_DUP, (rows) => {
-        for(var i in rows){
-            if(rows[i].id == id){
-                return res.status(400).send('Signup fail!');
-            }
-            else{
-                connection.query(INSERT_LISTENER, () => {
-                    return res.status(200).send('Signup success!');
-                })
-            }
-        }
+    connection.query(`SELECT * FROM listener`, (row) => {
+        console.log(row);
+        // for(var i in rows){
+        //     if(rows[i].id == id){
+        //         return res.status(400).send('Signup fail!');
+        //     }
+        //     else{
+        //         connection.query(INSERT_LISTENER, () => {
+        //             return res.status(200).send('Signup success!');
+        //         })
+        //     }
+        // }
     })
 };
 
@@ -66,13 +62,14 @@ exports.talkerSignin = (req, res) => {
   const pw = req.body.pw;
   console.log(id, pw);
 
-  const SELECT_TALKER = `SELECT * FROM talker WHERE id = ${id}`;
+  const SELECT_TALKER = `SELECT * FROM talker WHERE id = '${id}'`;
   connection.query(SELECT_TALKER, (error, rows) => {
     if(error){
         console.log(error); //에러가 있다면 에러를 console에 출력.
     }
+    console.log(rows);
     for(var i in rows){
-        if(rows[i].password == pw){
+        if(rows[i].pw == pw){
             res.status(200).json({token: rows[i].token});
         }
         else res.status(401).send('signin fail!');
@@ -83,7 +80,7 @@ exports.talkerSignin = (req, res) => {
 exports.talkerSignup = (req, res) => {
     console.log(1);
     const name = req.body.name;
-    const phone = req.body.phone;
+    const phone = req.body.phoneNumber;
     const id = req.body.id;
     const pw = req.body.pw;
     const age = req.body.age;
@@ -91,11 +88,12 @@ exports.talkerSignup = (req, res) => {
     const field = req.body.field;
     const area = req.body.area;
     const token = makeid();
-    const CHECK_DUP = `SELECT * FROM listener`;
-    const INSERT_TALKER = `INSERT INTO listener (name, phoneNumber, id, pw, age, sex, field, area, token) VALUES ('${name}', '${phone}', '${id}', '${pw}', '${age}', '${sex}', '${field}', '${area}', '${token}')`
+    console.log(name, phone, id, pw);
+    const CHECK_DUP = `SELECT * FROM talker`;
+    const INSERT_TALKER = `INSERT INTO talker (name, phoneNumber, id, pw, age, sex, field, area, token) VALUES ('${name}', '${phone}', '${id}', '${pw}', '${age}', '${sex}', '${field}', '${area}', '${token}')`
     
     connection.query(CHECK_DUP, (rows) => {
-        console.log(2);
+        console.log(rows);
         for(var i in rows){
             if(rows[i].id == id){
                 return res.status(400).send('Signup fail!');
