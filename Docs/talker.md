@@ -155,7 +155,7 @@ talkerToken 정보를 주지 않았을 때 발생.
 
 ### 전체 상담원 랭킹
 
-### GET: /talkerBytoken
+### GET: /ranking
 
 > Require
 
